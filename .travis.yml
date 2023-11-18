@@ -7,11 +7,16 @@ node_js:
 
 # Cache all npm dependencies so Travis CI only installs dependencies once.
 # For multiple builds, caching all npm dependencies enables your builds to run faster.
-cache: npm
+cache:
+  directories:
+    - node_modules
 
 # Configure the build cycles to tell Travis CI to install all dependencies.
 # You can also add other dependencies you like Travis to install globally.
-install: # Hook provided by Travis CI
+install:
+  # Update npm to the latest version
+  - npm install -g npm@latest
+  # Install project dependencies
   - npm install
 
 # Tell Travis CI to run the test for your Node application
