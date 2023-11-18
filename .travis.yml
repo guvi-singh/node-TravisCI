@@ -16,8 +16,8 @@ cache:
 install:
   # Update npm to the latest version
   - npm install -g npm@latest
-  # Install project dependencies
-  - npm install
+  # Install project dependencies with --no-progress flag
+  - npm install --no-progress
 
 # Tell Travis CI to run the test for your Node application
 script:
