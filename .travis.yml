@@ -3,16 +3,17 @@ language: node_js
 
 # Set the Node.js version you’d like Travis to use. Add more versions as you like.
 node_js:
-  - 18.16.0
+  - "14" # Adjust to a version supported by Heroku, e.g., LTS version
 
 # Cache all npm dependencies so Travis CI only installs dependencies once.
 # For multiple builds, caching all npm dependencies enables your builds to run faster.
 cache: npm
 
 # Configure the build cycles to tell Travis CI to install all dependencies.
-# You can also add other dependencies you like Travis to install globally.
+# You can also add other dependencies you'd like Travis to install globally.
 install: # Hook provided by Travis CI
   - npm install
+  - nvm install 14 # Install a specific Node.js version
 
 # Tell Travis CI to run the test for your Node application
 script:
