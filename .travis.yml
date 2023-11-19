@@ -19,7 +19,7 @@ install: # Hook provided by Travis CI
 script:
   - npm test
 
-# Install the Faraday library, which is required before deploying the build to Heroku
+# Install the Faraday library, which is required b4 deploying the build to Heroku
 before_deploy:
   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
 deploy:
