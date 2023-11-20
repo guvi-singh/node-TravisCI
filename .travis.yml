@@ -18,3 +18,12 @@ install: # Hook provided by Travis CI
 # Tell Travis CI to run the test for your Node application
 script:
   - npm test
+# Install the Faraday library, which is required before deploying the build to Heroku
+before_deploy:
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
+deploy:
+  provider: heroku # Tell Travis CI to deploy your application to Heroku.
+  skip-cleanup: true
+  api_key: $HEROKU_TOKEN # The environment variable you'll create later for a token.
+	  app: node-travis-app # Tells deployment should be made for the app node-travis-app.
+  
